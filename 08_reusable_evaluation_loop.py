@@ -152,3 +152,9 @@ def demo_evaluation_loop() -> None:
 
 def main() -> None:
     demo_evaluation_loop()
+
+    print("Added reusable evaluation loop function.")
+
+
+if __name__ == "__main__":
+    main()
