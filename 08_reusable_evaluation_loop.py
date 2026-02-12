@@ -119,3 +119,33 @@ def evaluate_with_metrics(
         metrics['macro_accuracy'] = per_class_acc.mean().item()
 
     return metrics
+
+
+def demo_evaluation_loop() -> None:
+    section("1) DEMO EVALUATION LOOP")
+
+    # Simple classification model
+    model = torch.nn.Sequential(
+        torch.nn.Linear(10, 50),
+        torch.nn.ReLU(),
+        torch.nn.Linear(50, 3)
+    )
+
+    # Fake data
+    x_test = torch.randn(100, 10)
+    y_test = torch.randint(0, 3, (100,))
+
+    # Basic evaluation
+    basic_metrics = evaluate_model(model, torch.nn.CrossEntropyLoss(), x_test, y_test)
+    print("Basic evaluation:")
+    print(f"  Loss: {basic_metrics['loss']:.4f}")
+    print(f"  Accuracy: {basic_metrics['accuracy']:.4f}")
+
+    # Detailed evaluation
+    detailed_metrics = evaluate_with_metrics(model, x_test, y_test, num_classes=3)
+    print("\nDetailed evaluation:")
+    print(f"  Loss: {detailed_metrics['loss']:.4f}")
+    print(f"  Accuracy: {detailed_metrics['accuracy']:.4f}")
+    print(f"  Macro Accuracy: {detailed_metrics['macro_accuracy']:.4f}")
+    print(f"  Per-class Accuracy: {detailed_metrics['per_class_accuracy']}")
+
