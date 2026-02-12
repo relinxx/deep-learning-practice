@@ -149,3 +149,6 @@ def demo_evaluation_loop() -> None:
     print(f"  Macro Accuracy: {detailed_metrics['macro_accuracy']:.4f}")
     print(f"  Per-class Accuracy: {detailed_metrics['per_class_accuracy']}")
 
+
+def main() -> None:
+    demo_evaluation_loop()
