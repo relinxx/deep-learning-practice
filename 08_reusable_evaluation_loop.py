@@ -17,3 +17,17 @@ def evaluate_model(
     y_data: torch.Tensor,
     batch_size: int = 32
 ) -> Dict[str, float]:
+    
+    """
+    Evaluate model on data with batching support.
+
+    Args:
+        model: PyTorch model
+        criterion: Loss function
+        x_data: Input data
+        y_data: Target data
+        batch_size: Batch size for evaluation
+
+    Returns:
+        Dict with evaluation metrics
+    """
