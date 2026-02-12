@@ -8,3 +8,12 @@ def section(title: str) -> None:
     print(title)
     print("=" * 60)
 
+
+
+def evaluate_model(
+    model: torch.nn.Module,
+    criterion: Callable[[torch.Tensor, torch.Tensor], torch.Tensor],
+    x_data: torch.Tensor,
+    y_data: torch.Tensor,
+    batch_size: int = 32
+) -> Dict[str, float]:
