@@ -4,7 +4,7 @@
 
 - [x] 1. Build a tensor playground script covering shapes, dtypes, broadcasting, indexing, and reshaping.
 - [x] 2. Implement matrix multiplication examples with timing on CPU.
-- [ ] 3. Write examples of automatic differentiation with simple scalar and vector functions.
+- [x] 3. Write examples of automatic differentiation with simple scalar and vector functions.
 - [ ] 4. Create a script showing gradient accumulation and why zero_grad() matters.
 - [ ] 5. Implement manual SGD update for a tiny linear model.
 - [ ] 6. Compare manual gradient updates vs torch.optim.SGD.
@@ -19,3 +19,4 @@
 
 - 01_tensor_playground.py (Step 1)
 - 02_matrix_multiplication_timing.py (Step 2)
+- 03_automatic_differentiation.py (Step 3)
