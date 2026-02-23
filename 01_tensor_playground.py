@@ -45,7 +45,6 @@ def broadcasting_demo() -> None:
     print("a shape:", a.shape)
     print("b shape:", b.shape)
     print("a + b shape:", c.shape)
-    print(c)
 
 
 def indexing_demo() -> None:
