@@ -7,7 +7,7 @@
 - [x] 3. Write examples of automatic differentiation with simple scalar and vector functions.
 - [x] 4. Create a script showing gradient accumulation and why zero_grad() matters.
 - [x] 5. Implement manual SGD update for a tiny linear model.
-- [ ] 6. Compare manual gradient updates vs torch.optim.SGD.
+- [x] 6. Compare manual gradient updates vs torch.optim.SGD.
 - [ ] 7. Build a reusable training loop function with clear inputs and outputs.
 - [ ] 8. Add a reusable evaluation loop function.
 - [ ] 9. Implement model checkpoint save and load.
@@ -22,3 +22,4 @@
 - 03_automatic_differentiation.py (Step 3)
 - 04_gradient_accumulation.py (Step 4)
 - 05_manual_sgd.py (Step 5)
+- 06_compare_manual_vs_optimizer.py (Step 6)
