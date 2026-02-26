@@ -24,6 +24,15 @@ def compare_sgd_implementations() -> None:
     optimizer = torch.optim.SGD([w_opt, b_opt], lr=learning_rate)
 
     print("Initial: w =", w_manual.item(), "b =", b_manual.item())
+    for epoch in range(epochs):
+        # Manual SGD
+        y_pred_manual = w_manual * x_data + b_manual
+        loss_manual = torch.mean((y_pred_manual - y_data) ** 2)
+        loss_manual.backward()
+
+        with torch.no_grad():
+            w_manual -= learning_rate * w_manual.grad
+            b_manual -= learning_rate * b_manual.grad
 def main() -> None:
     compare_sgd_implementations()
     different_learning_rates()
