@@ -33,6 +33,16 @@ def compare_sgd_implementations() -> None:
         with torch.no_grad():
             w_manual -= learning_rate * w_manual.grad
             b_manual -= learning_rate * b_manual.grad
+            w_manual.grad.zero_()
+        b_manual.grad.zero_()
+
+        # PyTorch Optimizer SGD
+        optimizer.zero_grad()
+        y_pred_opt = w_opt * x_data + b_opt
+        loss_opt = torch.mean((y_pred_opt - y_data) ** 2)
+        loss_opt.backward()
+        optimizer.step()
+
 def main() -> None:
     compare_sgd_implementations()
     different_learning_rates()
