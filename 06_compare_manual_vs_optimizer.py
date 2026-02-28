@@ -42,6 +42,15 @@ def compare_sgd_implementations() -> None:
         loss_opt = torch.mean((y_pred_opt - y_data) ** 2)
         loss_opt.backward()
         optimizer.step()
+        if (epoch + 1) % 25 == 0:
+            print(f"Epoch {epoch+1}:")
+            print(f"  Manual: loss={loss_manual.item():.4f}, w={w_manual.item():.4f}, b={b_manual.item():.4f}")
+            print(f"  Optimizer: loss={loss_opt.item():.4f}, w={w_opt.item():.4f}, b={b_opt.item():.4f}")
+
+    print("\nFinal comparison:")
+    print("Manual: w =", w_manual.item(), "b =", b_manual.item())
+    print("Optimizer: w =", w_opt.item(), "b =", b_opt.item())
+    print("Difference: w =", abs(w_manual.item() - w_opt.item()), "b =", abs(b_manual.item() - b_opt.item()))
 
 def main() -> None:
     compare_sgd_implementations()
