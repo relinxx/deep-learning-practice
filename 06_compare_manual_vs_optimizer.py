@@ -52,6 +52,15 @@ def compare_sgd_implementations() -> None:
     print("Optimizer: w =", w_opt.item(), "b =", b_opt.item())
     print("Difference: w =", abs(w_manual.item() - w_opt.item()), "b =", abs(b_manual.item() - b_opt.item()))
 
+def different_learning_rates() -> None:
+    section("2) DIFFERENT LEARNING RATES")
+
+    w = torch.tensor(1.0, requires_grad=True)
+    b = torch.tensor(0.0, requires_grad=True)
+
+    x_data = torch.tensor([1.0, 2.0, 3.0])
+    y_data = 2 * x_data + 1
+
 def main() -> None:
     compare_sgd_implementations()
     different_learning_rates()
