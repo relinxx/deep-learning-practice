@@ -60,6 +60,14 @@ def different_learning_rates() -> None:
 
     x_data = torch.tensor([1.0, 2.0, 3.0])
     y_data = 2 * x_data + 1
+        rates = [0.001, 0.01, 0.1]
+
+    for lr in rates:
+        # Reset parameters
+        w.data.fill_(1.0)
+        b.data.fill_(0.0)
+        w.grad = None
+        b.grad = None
 
 def main() -> None:
     compare_sgd_implementations()
