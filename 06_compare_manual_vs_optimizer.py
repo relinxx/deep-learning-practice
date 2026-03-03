@@ -68,6 +68,15 @@ def different_learning_rates() -> None:
         b.data.fill_(0.0)
         w.grad = None
         b.grad = None
+        
+        optimizer = torch.optim.SGD([w, b], lr=lr)
+
+        for _ in range(50):
+            optimizer.zero_grad()
+            y_pred = w * x_data + b
+            loss = torch.mean((y_pred - y_data) ** 2)
+            loss.backward()
+            optimizer.step()
 
 def main() -> None:
     compare_sgd_implementations()
