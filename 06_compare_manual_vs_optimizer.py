@@ -15,7 +15,8 @@ def compare_sgd_implementations() -> None:
 
     w_opt = torch.tensor(1.0, requires_grad=True)
     b_opt = torch.tensor(0.0, requires_grad=True)
-        # Same data
+
+    # Same data
     x_data = torch.tensor([1.0, 2.0, 3.0, 4.0])
     y_data = 2 * x_data + 1
 
@@ -33,7 +34,8 @@ def compare_sgd_implementations() -> None:
         with torch.no_grad():
             w_manual -= learning_rate * w_manual.grad
             b_manual -= learning_rate * b_manual.grad
-            w_manual.grad.zero_()
+
+        w_manual.grad.zero_()
         b_manual.grad.zero_()
 
         # PyTorch Optimizer SGD
@@ -60,7 +62,7 @@ def different_learning_rates() -> None:
 
     x_data = torch.tensor([1.0, 2.0, 3.0])
     y_data = 2 * x_data + 1
-        rates = [0.001, 0.01, 0.1]
+    rates = [0.001, 0.01, 0.1]
 
     for lr in rates:
         # Reset parameters

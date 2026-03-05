@@ -8,7 +8,7 @@
 - [x] 4. Create a script showing gradient accumulation and why zero_grad() matters.
 - [x] 5. Implement manual SGD update for a tiny linear model.
 - [x] 6. Compare manual gradient updates vs torch.optim.SGD.
-- [ ] 7. Build a reusable training loop function with clear inputs and outputs.
+- [x] 7. Build a reusable training loop function with clear inputs and outputs.
 - [ ] 8. Add a reusable evaluation loop function.
 - [ ] 9. Implement model checkpoint save and load.
 - [ ] 10. Add deterministic seed setup for reproducibility.
@@ -23,3 +23,4 @@
 - 04_gradient_accumulation.py (Step 4)
 - 05_manual_sgd.py (Step 5)
 - 06_compare_manual_vs_optimizer.py (Step 6)
+- 07_reusable_training_loop.py (Step 7)
