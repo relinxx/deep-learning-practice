@@ -5,7 +5,7 @@ from typing import Callable, Dict, Any
 def section(title: str) -> None:
     print("\n" + "=" * 60)
     print(title)
-    print("=" * 60)
+    print("=" * 60
 
 def main() -> None:
     demo_training_loop()
