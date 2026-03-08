@@ -6,7 +6,26 @@ def section(title: str) -> None:
     print("\n" + "=" * 60)
     print(title)
     
+def train_one_epoch(
+    model: torch.nn.Module,
+    optimizer: torch.optim.Optimizer,
+    criterion: Callable[[torch.Tensor, torch.Tensor], torch.Tensor],
+    x_batch: torch.Tensor,
+    y_batch: torch.Tensor
+) -> Dict[str, float]:
+    """
+    Train model for one epoch on a single batch.
 
+    Args:
+        model: PyTorch model
+        optimizer: Optimizer
+        criterion: Loss function
+        x_batch: Input batch
+        y_batch: Target batch
+
+    Returns:
+        Dict with 'loss' and 'accuracy' (if classification)
+    """
 
 def main() -> None:
     demo_training_loop()
