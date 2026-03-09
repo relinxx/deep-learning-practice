@@ -25,7 +25,7 @@ def train_one_epoch(
 
     Returns:
         Dict with 'loss' and 'accuracy' (if classification)
-    """
+    ""
 
 def main() -> None:
     demo_training_loop()
