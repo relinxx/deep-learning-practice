@@ -26,7 +26,24 @@ def train_one_epoch(
     Returns:
         Dict with 'loss' and 'accuracy' (if classification)
     """
-    
+    model.train()
+    optimizer.zero_grad()
+
+    logits = model(x_batch)
+    loss = criterion(logits, y_batch)
+
+    loss.backward()
+    optimizer.step()
+
+    # For classification, compute accuracy
+    if logits.shape == y_batch.shape:  # Regression
+        accuracy = float('nan')
+    else:  # Classification
+        predictions = logits.argmax(dim=1)
+        accuracy = (predictions == y_batch).float().mean().item()
+
+    return {'loss': loss.item(), 'accuracy': accuracy}
+
 
 def main() -> None:
     demo_training_loop()
