@@ -44,6 +44,15 @@ def train_one_epoch(
 
     return {'loss': loss.item(), 'accuracy': accuracy}
 
+def evaluate_model(
+    model: torch.nn.Module,
+    criterion: Callable[[torch.Tensor, torch.Tensor], torch.Tensor],
+    x_batch: torch.Tensor,
+    y_batch: torch.Tensor
+) -> Dict[str, float]:
+    """
+    Evaluate model on a batch.
+
 
 def main() -> None:
     demo_training_loop()
