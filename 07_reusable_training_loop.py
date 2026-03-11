@@ -53,7 +53,16 @@ def evaluate_model(
     """
     Evaluate model on a batch.
 
+    Args:
+        model: PyTorch model
+        criterion: Loss function
+        x_batch: Input batch
+        y_batch: Target batch
 
+    Returns:
+        Dict with 'loss' and 'accuracy'
+    """
+    
 def main() -> None:
     demo_training_loop()
 
