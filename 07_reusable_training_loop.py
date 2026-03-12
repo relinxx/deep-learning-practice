@@ -73,7 +73,7 @@ def evaluate_model(
             predictions = logits.argmax(dim=1)
             accuracy = (predictions == y_batch).float().mean().item()
 
-    return {'loss': loss.item(), 'accuracy': accuracy
+    return {'loss': loss.item(), 'accuracy
 def main() -> None:
     demo_training_loop()
 
