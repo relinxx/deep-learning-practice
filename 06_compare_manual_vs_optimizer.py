@@ -78,8 +78,7 @@ def different_learning_rates() -> None:
             y_pred = w * x_data + b
             loss = torch.mean((y_pred - y_data) ** 2)
             loss.backward()
-            optimizer.step()
-        print(f"LR {lr}: w={w.item():.4
+            optimizer.step(
 
 
 
