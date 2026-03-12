@@ -79,7 +79,7 @@ def different_learning_rates() -> None:
             loss = torch.mean((y_pred - y_data) ** 2)
             loss.backward()
             optimizer.step()
-        print(f"LR {lr}: w={w.item():.4f}, b={b.item():.4f}, final_loss={loss.item():.4f}")
+        print(f"LR {lr}: w={w.item():.4f}, b={b.item():.4f}, final_los 
 
 
 
