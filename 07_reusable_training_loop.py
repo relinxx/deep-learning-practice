@@ -62,7 +62,18 @@ def evaluate_model(
     Returns:
         Dict with 'loss' and 'accuracy'
     """
-    
+    model.eval()
+    with torch.no_grad():
+        logits = model(x_batch)
+        loss = criterion(logits, y_batch)
+
+        if logits.shape == y_batch.shape:  # Regression
+            accuracy = float('nan')
+        else:  # Classification
+            predictions = logits.argmax(dim=1)
+            accuracy = (predictions == y_batch).float().mean().item()
+
+    return {'loss': loss.item(), 'accuracy': accuracy}
 def main() -> None:
     demo_training_loop()
 
