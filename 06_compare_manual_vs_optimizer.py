@@ -91,6 +91,53 @@ def train_model(
     verbose: bool = True
 ) -> Dict[str, Any]:
     """
+        Train model with optional validation.
+
+    Args:
+        model: PyTorch model
+        optimizer: Optimizer
+        criterion: Loss function
+        x_train: Training inputs
+        y_train: Training targets
+        x_val: Validation inputs (optional)
+        y_val: Validation targets (optional)
+        epochs: Number of epochs
+        verbose: Print progress
+
+    Returns:
+        Dict with training history
+    """
+    history = {
+        'train_loss': [],
+        'train_accuracy': [],
+        'val_loss': [],
+        'val_accuracy': []
+    }
+
+    for epoch in range(epochs):
+        # Train
+        train_metrics = train_one_epoch(model, optimizer, criterion, x_train, y_train)
+        history['train_loss'].append(train_metrics['loss'])
+        history['train_accuracy'].append(train_metrics['accuracy'])
+
+        # Validate
+        if x_val is not None and y_val is not None:
+            val_metrics = evaluate_model(model, criterion, x_val, y_val)
+            history['val_loss'].append(val_metrics['loss'])
+            history['val_accuracy'].append(val_metrics['accuracy'])
+
+        if verbose and (epoch + 1) % max(1, epochs // 10) == 0:
+            print(f"Epoch {epoch+1}/{epochs}:")
+            print(f"  Train Loss: {train_metrics['loss']:.4f}")
+            if not torch.isnan(torch.tensor(train_metrics['accuracy'])):
+                print(f"  Train Acc: {train_metrics['accuracy']:.4f}")
+            if x_val is not None:
+                print(f"  Val Loss: {val_metrics['loss']:.4f}")
+                if not torch.isnan(torch.tensor(val_metrics['accuracy'])):
+                    print(f"  Val Acc: {val_metrics['accuracy']:.4f}")
+
+    return history
+
 
 def main() -> None:
     compare_sgd_implementations()
