@@ -79,7 +79,18 @@ def different_learning_rates() -> None:
             optimizer.step()
         print(f"LR {lr}: w={w.item():.4f}, b={b.item():.4f}, final_loss={loss.item():.4f}")
 
-
+def train_model(
+    model: torch.nn.Module,
+    optimizer: torch.optim.Optimizer,
+    criterion: Callable[[torch.Tensor, torch.Tensor], torch.Tensor],
+    x_train: torch.Tensor,
+    y_train: torch.Tensor,
+    x_val: torch.Tensor = None,
+    y_val: torch.Tensor = None,
+    epochs: int = 10,
+    verbose: bool = True
+) -> Dict[str, Any]:
+    """
 
 def main() -> None:
     compare_sgd_implementations()
