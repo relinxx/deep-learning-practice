@@ -136,7 +136,7 @@ def train_model(
                 if not torch.isnan(torch.tensor(val_metrics['accuracy'])):
                     print(f"  Val Acc: {val_metrics['accuracy']:.4f}")
 
-    return history
+
 
 
 def main() -> None:
