@@ -132,7 +132,7 @@ def train_model(
             if not torch.isnan(torch.tensor(train_metrics['accuracy'])):
                 print(f"  Train Acc: {train_metrics['accuracy']:.4f}")
             if x_val is not None:
-                print(f"  Val Loss: {val_metrics['loss']:.4f}")
+            
                    
 
 
